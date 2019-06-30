@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 1335, in script
+    jump behind_stairs_day_three
+ScriptError: could not find label 'behind_stairs_day_three'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 1335, in script
+    jump behind_stairs_day_three
+  File "/Applications/renpy-7.3.0-sdk/renpy/ast.py", line 1695, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Applications/renpy-7.3.0-sdk/renpy/script.py", line 894, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'behind_stairs_day_three'.
+
+Darwin-18.6.0-x86_64-i386-64bit
+Ren'Py 7.3.0.271
+Love Hunt 1.1
+Sun Jun 30 11:54:58 2019

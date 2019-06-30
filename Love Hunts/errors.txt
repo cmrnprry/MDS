@@ -1,0 +1,11 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 1771: invalid syntax
+        renpy.jump gym_day_halloween_good
+                                         ^
+    
+
+Ren'Py Version: Ren'Py 7.3.0.271
+Sun Jun 30 11:50:22 2019
