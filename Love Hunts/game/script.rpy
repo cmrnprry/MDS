@@ -1,14 +1,10 @@
 ﻿# The script of the game goes in this file.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-
 # The game starts here.
 
 label start:
 
-    #characters
+    #Characters
     #Character Main Locations
     # Banshee - Club Room
     # Zombie - Stairs
@@ -56,7 +52,11 @@ label start:
     mc "This witch costume is just barely convincing enough, and if I get caught being a human, it could mean the end of me."
     jump classroom_day_one
 
-#The scenes for day one
+########################################
+#                                      # 
+#             SCENES DAY 1             #
+#                                      #
+########################################
 label classroom_day_one:
 
     show mc at left
@@ -241,7 +241,9 @@ label classroom_day_one_s2:
         "To the bandroom":
             jump clubroom_day_one
 
-#Skeleton Day 1
+                            ################
+                            #Skeleton Day 1#
+                            ################
 label gym_day_one:
     scene gym
     show mc at left
@@ -363,7 +365,6 @@ label gym_day_one_good:
     $skeleton_sus += 10
     jump end_day_one
 
-
 label gym_day_one_bones:
     sk "What the fuck is that supposed to mean?"
     mc "Well like, I have muscles… and you"
@@ -404,7 +405,10 @@ label gym_day_one_bad:
     $skeleton_sus -= 20
     jump end_day_one      
 
-#Zombie Day 1
+
+                                ##############
+                                #Zombie Day 1#
+                                ##############
 label behind_stairs_day_one:
 
     scene hallway
@@ -545,6 +549,9 @@ label pull_quarter_zd1:
     $ zombie_sus -= 10
     jump end_day_one
 
+                                #################
+                                # WENDIGO DAY 1 #
+                                #################
 label behind_bleachers_day_one:
 
     scene bleachers
@@ -649,7 +656,9 @@ label bleacher_end:
 
     jump end_day_one
 
-
+                            #################
+                            # BANSHEE DAY 1 #
+                            #################
 label clubroom_day_one:
     scene clubroom
     show mc at left
@@ -750,7 +759,11 @@ label club_day_one_good:
     "Banshee smiles at me before heading out."
     jump classroom_day_two
 
+###############
+#END OF DAY ONE
+###############
 label end_day_one:
+    scene black
     $ day += 1
 
     mc "Well today was interesting…"
@@ -765,11 +778,11 @@ label end_day_one:
 
     jump classroom_day_two
 
-#######################
-
-# DAY 2 SCENES
-
-#######################
+########################################
+#                                      # 
+#             SCENES DAY 2             #
+#                                      #
+########################################
 label classroom_day_two:
 
     scene classroom 
@@ -850,17 +863,22 @@ label classroom_day_two:
     scene school_map
 
     "It seems like where I chose to go will be pretty important, so I should be sure in my choice before I go"
+   
+   ##### MENU MAP ## ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
     menu:
         "Where do I go?"
         "To the gym":
             jump gym_day_two
         "To the hallways":
             jump behind_stairs_day_two
-        "To the blachers":
+        "To the bleachers":
             jump behind_bleachers_day_two
         "To the bandroom":
             jump clubroom_day_two
 
+                        ###################
+                        # SKELETON DAY 2  #
+                        ###################
 label gym_day_two:
     scene gym
     show sk at right
@@ -950,6 +968,75 @@ label gym_day_two_bad:
     $ skeleton_sus -= 10
     jump end_day_two
 
+                            ###############
+                            #WENDIGO DAY 2#
+                            ###############
+label behind_bleachers_day_two:
+    scene bleacher
+    
+    show wendigo at right
+    "As I approach the bleachers, I can see Todd preparing some type of food"
+    wendigo"Ok, so you're supposed to now combine the chicken with the kale, but I brought my tofu substitute, which will make this recipe even better!"
+    show mc at left
+    wendigo "Oh, hi"
+    wendigo "I typically come out here to prepare my meals and eat, because some people don't appreciate what I make"
+    wendigo "All of the heathens that go to this school think meat is the epitome of delectable meals."
+    wendigo "I swear, you could literally serve them a unskinned deer and they would fight over who gets the first bite"
+    wendigo "What do you think about their eating habits? Do you actually value flavor and meaning, or you just want what you can get?"
+    menu:
+    "How do I feel about food?"
+        "You should always aim to make the best food you can":
+            jump bleacher_good_food
+        "Meat Good":
+            jump bleacher_bad_food
+
+label bleacher_good_food:
+    wendigo"Definitely, I was fairly confident you were not like the others, and this confirms it."
+    wendigo "I personally stray away from meats, and find substitutes any time I can"
+    wendigo "The flavors never combine well, and there's no definite way for me to know the meat was obtained ethically"
+    wendigo "I've thought about cutting gluten out of my diet, but I simply can't go without my Trader Joe's chocolate dunkers."
+    wendigo "There's a whole world of culinary expertise that I can't wait to spend my life exploring!"
+    wendigo "Now, are you as excited about food as I am, or do you just moderately enjoy it?"
+    menu:
+        "How much do I enjoy food?"
+        "It is the only thing that gives me happiness":
+            jump bleacher_happy_food
+        "I do not know too much about the food world":
+            jump bleacher_sad_food
+
+label bleacher_bad_food:
+    wendigo "I must admit, I'm a bit surprised"
+    wendigo "I pegged you as different from everyone else, but you have proved your incompetence"
+    wendigo "You should probably go, I don't want to keep you bored with my culinary expertise."
+    "I think this guy takes his food way too seriously..."
+    hide mc
+    $wendigo_sus -=10
+    jump end_day_two
+
+label bleacher_happy_food:
+    wendigo "Wonderful, I see you are a monster of culture"
+    wendigo "You can truly learn a lot about a person based on what they eat"
+    wendigo "I hope that when people see my meals, they understand that I'm a worldly being, with a deep understanding of what it means to live a full life"
+    wendigo "And, based on what you just told me, I peg you very similarly"
+    "Wow, I have not hear Todd say such a nice thing!"
+    "I really hope we can further our friendship!"
+    $wendigo_sus += 10
+        jump end_day_two
+
+label bleacher_sad_food:
+    wendigo "That's acceptable, as I'm sure that if you keep hanging with me, I can expose you to the world"
+    wendigo "There's so much to discover, and I would love to help someone see into it."
+    wendigo "If you're willing to, that is"
+    wendigo "And, of course, I don't expect you to make such an important decision now"
+    wendigo "But consider it. It would be cool to have a Food Friend"
+    "Wow! That's definitely an interesting offer"
+    $wendigo_sus +=5
+    jump end_day_two
+
+
+                                ###############
+                                #BANSHEE DAY 2#
+                                ###############
 label clubroom_day_two:
     scene clubroom
     show mc at left
@@ -987,7 +1074,7 @@ label club_day_two_lie_sports:
     banshee "You’ll get better I believe in you!!"
     "Banshee seems a little uneasy, but is sweet as always."
     $ banshee_sus -= 5
-    jump classroom_day_three
+    jump end_day_two
 
 label club_day_two_truth:
     mc "Actually I do magic tricks,"
@@ -1009,7 +1096,7 @@ label club_day_two_trick:
     "Good thing Banshee is so positive and easily impressed."
     mc "Human tricks are all about misdirection and illusions! The quarter was actually in my hand the whole time!"
     $ banshee_sus += 10
-    jump classroom_day_three
+    jump end_day_two
 
 label club_day_two_cheer:
     mc "You need this specific kit to do them and I left it at home."
@@ -1024,7 +1111,7 @@ label club_day_two_cheer:
     show banshee blushie
     "I don't mind seeing Banshee like this. I want to make them blush again "
     $ banshee_sus +=10
-    jump classroom_day_three
+    jump end_day_two
 
 label club_day_two_lie_music:
     mc "I write songs."
@@ -1035,8 +1122,12 @@ label club_day_two_lie_music:
     "I shrug."
     mc "Maybe."
     $ banshee_sus -=5
-    jump classroom_day_three
+    jump end_day_two
 
+
+                                ##############
+                                #ZOMBIE DAY 2#
+                                ##############
 label behind_stairs_day_two:
     
     scene hallway
@@ -1170,6 +1261,7 @@ label zday_two_choice3:
 
     jump end_day_two
 
+##### END DAY 2 #####
 label end_day_two:
     mc "Day two at Creature Academy over and done. Only a couple days left."
     
@@ -1192,11 +1284,11 @@ label end_day_two:
 
 
 
-#########################
-
-#The scenes for day three
-
-#########################
+########################################
+#                                      # 
+#             SCENES DAY 3             #
+#                                      #
+########################################
 
 
 label classroom_day_three:
@@ -1326,18 +1418,23 @@ label classroom_day_three:
     teacher "But, we have run out of homeroom time, so you should all get going! See you all tomorrow!"
 
     scene school_map
-
+##### MENU MAP ## ##### ##### ##### ##### ##### ##### ##### ##### ##### #####
     menu:
         "Where do I go?"
         "To the gym":
             jump gym_day_three
         "To the hallways":
+            #NOT IN
             jump behind_stairs_day_three
-        "To the blachers":
+        "To the bleachers":
+            #NOT IN
             jump behind_bleachers_day_three
         "To the bandroom":
             jump clubroom_day_three
 
+                            ################
+                            #SKELETON DAY 3#
+                            ################
 label gym_day_three:
     scene gym
     show mc at left
@@ -1440,6 +1537,98 @@ label gym_day_three_death:
     $ skeleton_sus -= 15
     jump end_day_three
 
+
+                                ###############
+                                #WENDIGO DAY 3#
+                                ###############
+label behind_bleachers_day_three:
+    scene bleachers
+    
+    show wendigo at right
+    show mc at left
+
+    show
+        
+    "As you approach, you notice that Todd has something lit in his hand"
+        
+    wendigo "Hey, [main], what's up?"
+        
+    wendigo "I'm just trying to relax before I have to go back and pretend to care about being here"
+
+    show wendigo angry 
+
+    wendigo "You aren't going to tell anyone, right?"
+
+    menu: 
+        "Should I tell?"
+        "Nah, its fine":
+            jump bleachers_dont_smoke
+        "Of course I won't, if you share":
+            jump bleachers_smoke
+        "It is my moral obligation to expose you":
+            jump bleachers_expose
+
+label bleachers_dont_smoke:
+    wendigo:"Thanks"
+    "He takes another hit of whatever it is that he is smoking"
+    wendigo "You know, I'm able to smoke this, and I probably wouldn't get in trouble"
+    wendigo "But this shit is still illegal here! There's people in jail for just wanting to feel calmer!"
+    wendigo "Isn't that some bullshit?!?"
+    wendigo "They literally just want to arrest people they think are dangerous"
+    wendigo "But they aren't! The rich just took everything from these people "
+    wendigo "We truly live in a society, don't we?"
+    "I feel like he's trying to make a valid point, but is too incapicated to string his words together well."
+    "He takes a few moments to catch his breath, which he lost with how fast he was talking"
+    wendigo "You know, I should probably get going anyways"
+    wendigo "I have a reservation at a raw pizza kitchen, and I can't go reeking of weed"
+    "He leave very suddenly, and you're left alone to think about how we do, in fact, live in a society."
+    $ wendigo_sus+=5
+    jump end_day_three
+
+label bleachers_smoke:
+    wendigo "I didn't know you were cool enough to smoke!"
+    wendigo "Come on over, I got enough to share"
+    "You breath in the smoke from the pipe. It fills your lungs immediately, and even though you feel a large urge to cough, you keep it in to prove your coolness"
+    wendigo "Man, that was..."
+    wendigo "Huge! I can't even take puffs that big! I hope you know your tolerance, because this can get you fucked up!"
+    "I do not know my tolerance"
+    wendigo "But man, do you know what I've been thinking about a lot recently?"
+    "I think I have fully lost my ability to speak"
+    wendigo "Capitalism man!"
+    wendigo "It's shit!"
+    wendigo "We are promised this life where the hardest workers get the best, but it's not true!"
+    wendigo "All that happens is a cycle where the rich stay rich and the poor stay poor, forever blaming themselves for not having a better life."
+    wendigo "And they don't even realize that they were set up to be like this"
+    wendigo "Forever hoping that one day, they'll be just lucky enough to feel stable"
+    wendigo "But for most of them, that day will never come!"
+    "I think I heard most of what Todd just say, but I can't find any words to respond with"
+    wendigo "Sorry about that rant..."
+    wendigo "Hey, you're not actually looking too good"
+    wendigo "The strand we had was called Hades' Lettuce, and it definitely packs a punch if you don't take it slow"
+    wendigo "However, you should be good if you just rest for a bit, it wears off pretty quickly"
+    "My mind can only focus on the word rest, and a nap does sound incredible right now"
+    "As I drift into sleep, I hear Todd sarcastically say 'Goodnight'"
+    $ wendigo_sus +=10
+    jump end_day_three
+
+label  bleachers_expose:
+    wendigo "Oh yeah, everyone talks about their moral obligations, but they never actually practice them!"
+    wendigo"You can go and expose me, but that isn't going to solve the bigger issues at hand"
+    wendigo "You know what I'm talking about right?"
+    wendigo "I'm talking about..."
+    wendigo "Capitalism!"
+    wendigo "It's the reason people suffer! It's the reason we are all damned to a hell worst than anything Hades could provide!"
+    wendigo "You know what, I hope you tell someone about this, and I hope they arrest me"
+    wendigo "Because then, and only then, and I destroy the system from the inside out"
+    wendigo "So go! Leave me! Get me arrested!"
+    "You leave the bleacher, not having any intention to report the extremely high hipster"
+    $ wendigo_sus-=10
+
+    jump end_day_three
+
+                                    ###############
+                                    #BANSHEE DAY 3#
+                                    ###############
 label clubroom_day_three:
     "Banshee isn't in the band room when I get there. I sit on the carpet to wait."
     "I close my eyes for a moment."
@@ -1504,6 +1693,140 @@ label club_day_three_bad:
     mc "I fiddle with my thumbs until they leave."
     jump end_day_three
 
+
+                                    ##############
+                                    #ZOMBIE DAY 3#
+                                    ##############
+label behind_stairs_day_three:
+    "When I reach the Zoȅ's  hiding spot, she does not have her nose buried in a book, but instead is thoughtfully writing in what looks to be a journal."
+
+    show zombie at right
+
+    show mc at left
+
+    mc "No book today Zoȅ?"
+
+    "I sat down beside her and leaned over to look at her journal."
+
+    mc "Whatcha writing?"
+
+    zombie "Oh [mc], I have given up my quest. I do not think the human I'm looking for exists! So I am wallowing in my anguish by writing poetry."
+
+    "She hands me her journal."
+
+    zombie "Read it if you want."
+
+    "Oh, human of mine"
+    "With a brain so divine"
+    "Where are you?"
+    "Where do I look to?"
+    "I've searched far and wide"
+    "But you continue to hide"
+    "Now I am dejected"
+    "Yet you remain unaffected"
+    "I pray for the day we find one another"
+    "And then..."
+
+    "The poem devolves into how she would kill and prepare the human before she ate their brain."
+
+    menu:
+        "This is really good!":
+            jump z_day3_choice
+        "Could be better.":
+            jump z_day3_choice2
+        "It was good until…":
+            jump z_day3_choice3
+
+label z_day3_choice:
+    show zombie_happy at right
+
+    zombie "Really?"
+
+    mc "Yeah! It really, ah, tells you what you're feeling. Straight to the point."
+
+    zombie "You think? I thought I was very clever with my word choice. Although it's not as profound as I would have liked."
+
+    "She flipped through her journal and showed me another."
+
+    zombie "Here read this!"
+
+    "Humans humans are so great"
+    "I want to take them out on dates"
+    "These dates will be oh so fun"
+    "I'll hit and hit until it's done"
+    "They'll beg and plead but I won't care"
+    "Their screams and cries make a good pair"
+    "With the wine I brought"
+    "Time to feast"
+
+    "I winced. Are all monsters like this?"
+
+    mc "This one is even better!"
+
+    show zombie blushie at right
+
+    zombie "I'm happy you like it. Want to read more?"
+
+    "I nod and we spend the rest of the day reading, and even writing some new, poetry."
+
+    $ zombie_sus += 10
+
+    jump end_day_three
+
+label z_day3_choice2:
+
+    zombie "You think so…?"
+
+    "She sadly looked at her journal."
+
+    mc "I mean that doesn't mean there's no room for improvement. You've got a good base!"
+
+    "She perked back up."
+
+    show zombie happy at right
+
+    zombie "You're right!"
+
+    mc "And if you keep working you'll get better!"
+
+    zombie "Yeah!"
+
+    "For the rest of the day you encouraged Zoȅ to keep writing better and better poetry."
+
+    $ zombie_sus += 5
+
+    jump end_day_three
+
+label z_day3_choice3:
+
+    zombie "Until what?"
+
+    mc "All the, uh, murdery parts…"
+
+    show zombie angry at right
+
+    zombie "Teacher said that was the best part."
+
+    mc "Oh well what do I know hahahhaha."
+
+    zombie "Obviously, nothing about poetry."
+
+    show zombie suspicious at right
+
+    zombie "And what kind of Witch are you? I thought you would like the part about using their bones for stew? Don't you do that but for potions?"
+
+    mc "I…"
+
+    "I panicked. How stupid could I be?"
+
+    mc "Oh did you hear the bell? I gotta run!"
+
+    $ zombie_sus -= 10
+
+    jump end_day_three
+
+
+####### END DAY 3 #########
 label end_day_three:
     scene classroom
     mc "Tomorrow's the big day."
@@ -1524,15 +1847,11 @@ label end_day_three:
 
     jump classroom_day_four
 
-#######################
-
-#SCENES DAY 4
-
-#######################
-
-#The scenes for day four
-
-#########################
+########################################
+#                                      # 
+#             SCENES DAY 4             #
+#                                      #
+########################################
 label classroom_day_four:
 
     "As I approach the classroom, I can hear loud commotion coming from within"
@@ -1602,17 +1921,21 @@ label classroom_day_four:
 
     scene school_map 
     menu:
+    ######### MENU MAP############ # # # ##### # #  ##
         "Where do I go?"
         "To the gym":
             jump gym_day_four
         "To the hallways":
             jump behind_stairs_day_four
-        "To the blachers":
+        "To the bleachers":
+            # NOT WRITTEN
             jump behind_bleachers_day_four
         "To the bandroom":
             jump clubroom_day_four
 
-
+                                ################
+                                #SKELETON DAY 4#
+                                ################
 label gym_day_four:
     scene gym
     show mc at left
@@ -1652,6 +1975,9 @@ label gym_day_four_end:
     mc "Maybe I will"
     jump end_day_four
 
+                            ###############
+                            #BANSHEE DAY 2#
+                            ###############
 label clubroom_day_four:
     "Banshee walks in, looking more serious than usual."
     banshee " Seeing everyone so excited about killing is making me kinda sad."
@@ -1680,6 +2006,9 @@ label club_day_four_bad:
     $ banshee_sus +=40
     jump end_day_four
 
+                                ##############
+                                #ZOMBIE DAY 4#
+                                ##############
 label behind_stairs_day_four:
 
     "When I reached Zoë's spot behind the stairs she jumped up to greet me."
@@ -1745,6 +2074,8 @@ label zombie_bad_day:
 
     jump end_day_four
 
+
+####### END DAY 4 ########
 label end_day_four:
 
     "Who do you want to spend Halloween with?"
@@ -1775,10 +2106,19 @@ label end_day_four:
                     renpy.jump(gym_day_halloween_good)
                 else:
                     renpy.jump(gym_day_halloween_bad)
+#################################
+#                               #
+#       HALLOWEEN SCENES        #
+#                               #
+#################################
 
-#The scenes for halloween
+                        #########################
+                        #SKELETON HALLOWEEN GOOD#
+                        #########################
 label gym_day_halloween_good:
     scene gym
+    show mc at left
+    show sk at right
     "From the window of the gym I see a group of skeletons on the field with a bat and wicket. The field seems to be burning, and be made of broken glass. I decide to stay inside. Cal is up to bat right now. I yell out:"
     mc "HEY BRO HOW'S IT GOING"
     sk "OH HEY WITCHYBROMEATMCGILLIGCUDY, did you hear?"
@@ -1801,7 +2141,12 @@ label gym_day_halloween_good:
     sk "YES!"
     jump game_credits
 
+                        ########################
+                        #BANSHEE HALLOWEEN GOOD#
+                        ########################
 label clubroom_day_halloween_good:
+    
+    scene clubroom
 
     "I meet banshee in front of the club rom and we walk to their house."
     banshee "It’s just you and me. Hope that’s okay."
@@ -1828,7 +2173,12 @@ label clubroom_day_halloween_good:
     mc "I like you."
     jump game_credits
 
+                    #######################
+                    #ZOMBIE HALLOWEEN GOOD#
+                    #######################
 label behind_stairs_day_halloween_good:
+    
+    scene hallway
     
     show zombie at right
 
@@ -1866,12 +2216,73 @@ label behind_stairs_day_halloween_good:
 
     zombie "Never!"
 
-    show zombie_love at right
+    show zombie love at right
 
-    show mc_love at left
+    show mc love at left
 
     jump game_credits
 
+                        ########################
+                        #WENDIGO HALLOWEEN GOOD#
+                        ########################
+label behind_bleachers_day_halloween_good:
+    scene bleachers
+    show mc at left
+    show wendigo at right
+    mc "Are you ready to go on the big Hunt?"
+
+    wendigo "No… My parents want me to eat someone, but I'm {i} vegan {/i}. Why can't they understand that?"
+
+    mc "Have you talked to them about it?"
+
+    wendigo  "Yeah. If I just do this one thing, then they said they {i} might consider{/i} letting me be fully vegan."
+
+    mc "Screw that."
+
+    wendigo  "What?"
+
+    mc "Screw that. Who cares what they think?"
+
+    wendigo "But they're my parents…"
+
+    mc "And? If they don't support you, then what kind of parents are they?"
+
+    wendigo  "..."
+
+    mc "Listen man, they'll come around eventually, but you can't keep jumping through hoops to appease them if it won't make you happy."
+
+    wendigo  "You're right."
+
+    "Todd Howard tapped a few things on his phone."
+
+    show wendigo blushie at right
+
+    wendigo "Do you want to go somewhere with me?"
+
+    show mc blushie at left
+
+    mc "Uh.. sure where?"
+
+    wendigo "There's this really good restaurant not too far from here."
+
+    mc "Let's go."
+
+    "Together, the two of us go and share a meal. A vegan meal."
+
+    show mc love at left
+
+    show wendigo love at right 
+
+    jump game_credits 
+
+#####
+#BAD#
+#####
+
+
+                        ########################
+                        #SKELETON HALLOWEEN BAD#
+                        ########################
 label gym_day_halloween_bad:
     "I walk out to the gym. The lights are off. I go find the switch."
     scene Gym
@@ -1891,10 +2302,18 @@ label gym_day_halloween_bad:
     sk "They say I'm {i}toxic{/i}"
     sk "You got too close"
     sk "Then I knew"
+    sk ""
+    sk "..."
     sk "Sorry bro"
     jump game_credits
 
+                        #######################
+                        #BANSHEE HALLOWEEN BAD#
+                        #######################
 label clubroom_day_halloween_bad:
+    scene clubroom
+    show mc at right
+    show banshee at left
     mc "Hey!"
     banshee "Hi."
     "I meet Banshee after class in the club room, but something feels off."
@@ -1914,8 +2333,13 @@ label clubroom_day_halloween_bad:
     banshee "I’m so so sorry."
     jump game_credits
 
+                        ######################
+                        #ZOMBIE HALLOWEEN BAD#
+                        ######################
 label behind_stairs_day_halloween_bad:
-
+    scene hallway
+    show zombie at right
+    show mc at left
     zombie "Before we go I need to tell you something."
 
     mc "What's up?"
@@ -1928,23 +2352,85 @@ label behind_stairs_day_halloween_bad:
 
     mc "No- I-"
 
-    "Before [mc] could respond Zoë jumped on them and ate his brain meats. She didn't learn too much, but she did learn some sweet magic tricks. Using this knowledge she was able to easily over power Melon Elusk." 
+    "Before [main] could respond Zoë jumped on them and ate his brain meats. She didn't learn too much, but she did learn some sweet magic tricks. Using this knowledge she was able to easily over power Melon Elusk." 
 
     jump game_credits
 
+                        #######################
+                        #WENDIGO HALLOWEEN BAD#
+                        #######################
+label behind_bleachers_day_halloween_bad:
+    scene bleachers
+    show wendigo at right
+    show mc at left
+    
+    wendigo "[main], I know you've been hiding something from all of us."
+
+    mc "What do you mean?"
+
+    wendigo "You're not a Witch, you're just a human who's playing pretend."
+
+    mc "What? No that's crazy talk. Look."
+
+    "I pull small firecrackers and throw them to the gound."
+
+    mc "See? Magic! I made sparks."
+
+    "He shook his head."
+
+    wendigo "Just more magic tricks created by humans."
+
+    "He pulled out his phone and showed me an Instagram account. It was a human magician account. My heart sank."
+
+    mc "Todd, listen man, I can explain-"
+
+    wendigo "I'm sorry. I wish things could have turned out differently."
+
+    "Before could respond, Todd grabbed me took and a photo of us together."
+
+    wendigo "My parents don't believe in my veganism, so I have to show them that I can eat humans, I just don't want to. Maybe then they'll see there's nothing wrong with me."
+
+    mc "Todd…"
+
+    wendigo "I'm sorry [mc]. I don't want to do this any more than you don't want it to happen."
+
+    "Todd proceed to eat [mc], gagging and crying as he did so. [mc] begged and pleaded but Todd didn't stop. He had to."
+
+    wendigo "I'm sorry."
+
+    jump game_credits
+
+
+################################
+# # # # # GAME CREDITS # # # # #
+################################
 label game_credits:
     "Credits:"
+    show wendigo at right
+    show sk at left
+    show teacher at center
     "Angel Ortiz: Character Art"
+    scene hallway
     show zombie
     "Cam Perry: Zoë Branch & Lead Programmer"
+    scene gym
     show sk
     "Elijah Cobb: Cal Branch & QA Testing & Lead Programmer"
+    scene classroom
     show teacher at left
     show wendigo at right
     "Jamie Camera: Classrooms and Todd Branch & Lead Programmer"
+    hide teacher at left
+    hide wendigo at right
+    show zombie at left
+    show banshee at right
+    show mc at center
     "Katt McCann - Character Art"
+    scene clubroom
     "Maddy Marzano - Backgrounds"
+    show banshee
     "Tulani Reeves-Miller Background Art and Story"
+    scene black
     "Thank you so much for playing our game"
     jump end_game
 
