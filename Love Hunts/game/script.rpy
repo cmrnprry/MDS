@@ -247,7 +247,7 @@ label classroom_day_one_s2:
 label gym_day_one:
     scene gym
     show mc at left
-    "I walk into the school's large gym. There's also a small gym but that's just a card board box where mandrakes and others play their own sports. The large gym has some equipment for everyone. I see a rather beefy…"
+    "I walk into the school's large gym. There's also a small gym but that's just a cardboard box where mandrakes and others play their own sports. The large gym has some equipment for everyone. I see a rather beefy…"
 
     "No wait, that doesn't make sense"
 
@@ -273,6 +273,7 @@ label gym_day_one:
     mc "Witch, uh, exercises"
     mc "Witch exercises" 
     mc "Magic and what not"
+    show sk happy
     sk "WOAH BRO, that shit's tight. Could you show me one?"
     mc "Yeah, sure. You want to see a spell?"
     sk "YUS, I LOVE MAGIC."
@@ -280,18 +281,26 @@ label gym_day_one:
     sk "So what are you gonna do"
     mc "Uh, I have these {i}Rings of{/i}..."
     mc "{i}Rings of Cincinnati{/i}"
+    show sk suspicious
+    show mc suprised
     "Cincinnati? Really [main]? I thought I didn't want to die."
     "I wonder what cruel, grotesque, soul crushing, way this skeleton could make me no more."
     "Oh no he's looking mad"
     sk "{i}Cincinnati{/i}?"
+    show sk
     sk "Sounds like an old guru. Cincinnati. Even saying it makes me feel more magical."
-    sk "Awesome bro"  
+    show sk happy
+    sk "Awesome bro"
+    show mc happy
     mc "Ha, yeah, he's quite the famous warlock"
     "As I reach into my pocket to pull out the rings I really hope the next class isn't geography"
+    show sk suspicious
+    show mc
     mc "Here they are {i}the Rings of Cincinnati{/i}. Behold, two interlocking rings."
     mc "However, when I say the magic words." 
     mc "{i}Toledo{/i}."
     mc "The rings merge through each other and separate." 
+    show sk happy
     sk "WOAH, how the fucking fuck?"
     mc "Magic my man"
     mc "And with the incantation:"
@@ -299,6 +308,7 @@ label gym_day_one:
     mc "The rings re-connect. As if they were never apart."
     sk "Woah woah. Damn you really are a witch"
     show banshee
+    show sk
     banshee "Hey Cal, mind if I use the treadmill"
     sk "Yeah of course, it's already set up to the \"Humans running from a great evil\" path."
     banshee "Perfect"
@@ -311,8 +321,10 @@ label gym_day_one:
     "They are plastic"
     sk "Okay, here I go"
     sk "{i}Toledo{/i}"
+    show sk angry
     sk "HNNNG"
     "The skeleton pulls with so much might, yet the plastic rings don't even bend."
+    show sk
     sk "Damn, it isn't working. What's going wrong?"
     menu:
         mc "Well from my wisdom"
@@ -2091,7 +2103,6 @@ label end_day_four:
             else:
                 jump behind_bleachers_day_halloween_bad
         "Banshee":
-            python:
             if banshee_sus > 50:
                 jump clubroom_day_halloween_good
             else:
