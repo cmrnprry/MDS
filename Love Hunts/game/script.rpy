@@ -984,7 +984,7 @@ label behind_bleachers_day_two:
     wendigo "I swear, you could literally serve them a unskinned deer and they would fight over who gets the first bite"
     wendigo "What do you think about their eating habits? Do you actually value flavor and meaning, or you just want what you can get?"
     menu:
-    "How do I feel about food?"
+        "How do I feel about food?"
         "You should always aim to make the best food you can":
             jump bleacher_good_food
         "Meat Good":
@@ -1021,7 +1021,7 @@ label bleacher_happy_food:
     "Wow, I have not hear Todd say such a nice thing!"
     "I really hope we can further our friendship!"
     $wendigo_sus += 10
-        jump end_day_two
+    jump end_day_two
 
 label bleacher_sad_food:
     wendigo "That's acceptable, as I'm sure that if you keep hanging with me, I can expose you to the world"
@@ -1546,8 +1546,6 @@ label behind_bleachers_day_three:
     
     show wendigo at right
     show mc at left
-
-    show
         
     "As you approach, you notice that Todd has something lit in his hand"
         
@@ -1569,7 +1567,7 @@ label behind_bleachers_day_three:
             jump bleachers_expose
 
 label bleachers_dont_smoke:
-    wendigo:"Thanks"
+    wendigo "Thanks"
     "He takes another hit of whatever it is that he is smoking"
     wendigo "You know, I'm able to smoke this, and I probably wouldn't get in trouble"
     wendigo "But this shit is still illegal here! There's people in jail for just wanting to feel calmer!"
@@ -2082,30 +2080,27 @@ label end_day_four:
 
     menu:
         "Zoe":
-            python:
-                if zombie_sus > 50:
-                    renpy.jump(behind_stairs_day_halloween_good)
-                else:
-                    renpy.jump(behind_stairs_day_halloween_bad)
+            if zombie_sus > 50:
+                jump behind_stairs_day_halloween_good
+            else:
+                jump behind_stairs_day_halloween_bad
         "Todd Howard":
-            python:
-                if windego_sus > 50:
-                    renpy.jump(behind_bleachers_day_halloween_good)
+            if windego_sus > 50:
+                jump behind_bleachers_day_halloween_good
                 
-                else:
-                    renpy.jump(behind_bleachers_day_halloween_bad)
+            else:
+                jump behind_bleachers_day_halloween_bad
         "Banshee":
             python:
-                if banshee_sus > 50:
-                    renpy.jump(clubroom_day_halloween_good)
-                else:
-                    renpy.jump(clubroom_day_halloween_bad)
+            if banshee_sus > 50:
+                jump clubroom_day_halloween_good
+            else:
+                jump clubroom_day_halloween_bad
         "Cal":
-            python:
-                if skeleton_sus > 50:
-                    renpy.jump(gym_day_halloween_good)
-                else:
-                    renpy.jump(gym_day_halloween_bad)
+            if skeleton_sus > 50:
+                jump gym_day_halloween_good
+            else:
+                jump gym_day_halloween_bad
 #################################
 #                               #
 #       HALLOWEEN SCENES        #

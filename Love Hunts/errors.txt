@@ -2,10 +2,25 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1771: invalid syntax
-        renpy.jump gym_day_halloween_good
-                                         ^
-    
+File "game/script.rpy", line 986: menu statement expects a non-empty block.
+    menu:
+        ^
+
+File "game/script.rpy", line 988: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    "You should always aim to make the best food you can":
+    ^
+
+File "game/script.rpy", line 1024: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
+    jump end_day_two
+    ^
+
+File "game/script.rpy", line 1550: expected 'image_name_component' not found.
+    show
+        ^
+
+File "game/script.rpy", line 1572: expected statement.
+    wendigo:"Thanks"
+           ^
 
 Ren'Py Version: Ren'Py 7.3.0.271
-Sun Jun 30 11:50:22 2019
+Sun Jun 30 16:50:15 2019
